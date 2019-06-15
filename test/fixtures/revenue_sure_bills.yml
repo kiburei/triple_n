@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  revenue_stream_code: MyString
+  bill_number: MyString
+  receipt_number: MyString
+  transaction_type: MyString
+  bill_amount: MyString
+  transaction_code: MyString
+  identifier: MyString
+  client_name: MyString
+
+two:
+  revenue_stream_code: MyString
+  bill_number: MyString
+  receipt_number: MyString
+  transaction_type: MyString
+  bill_amount: MyString
+  transaction_code: MyString
+  identifier: MyString
+  client_name: MyString

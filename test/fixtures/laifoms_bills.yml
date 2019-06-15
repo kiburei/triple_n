@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bill_number: MyString
+  date_issued: MyString
+  client_name: MyString
+  brief_description: MyString
+  bill_status: MyString
+  date_paid: MyString
+  account_number: MyString
+  detail_amount: 9.99
+
+two:
+  bill_number: MyString
+  date_issued: MyString
+  client_name: MyString
+  brief_description: MyString
+  bill_status: MyString
+  date_paid: MyString
+  account_number: MyString
+  detail_amount: 9.99

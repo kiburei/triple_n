@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190612185655) do
+ActiveRecord::Schema.define(version: 20190615102849) do
+
+  create_table "bank_parking_payments", force: :cascade do |t|
+    t.string "number_plate"
+    t.decimal "amount", precision: 18, scale: 0
+    t.string "posting_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bank_payments", force: :cascade do |t|
     t.string "narration"
@@ -20,6 +28,33 @@ ActiveRecord::Schema.define(version: 20190612185655) do
     t.datetime "updated_at", null: false
     t.decimal "cleared_running_balance", precision: 18, scale: 0
     t.decimal "book_balance", precision: 18, scale: 0
+  end
+
+  create_table "laifoms_bills", force: :cascade do |t|
+    t.string "bill_number"
+    t.string "date_issued"
+    t.string "client_name"
+    t.string "brief_description"
+    t.string "bill_status"
+    t.string "date_paid"
+    t.string "account_number"
+    t.decimal "detail_amount", precision: 18, scale: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "bank_narrative"
+  end
+
+  create_table "revenue_sure_bills", force: :cascade do |t|
+    t.string "revenue_stream_code"
+    t.string "bill_number"
+    t.string "receipt_number"
+    t.string "transaction_type"
+    t.decimal "bill_amount", precision: 18, scale: 0
+    t.string "transaction_code"
+    t.string "identifier"
+    t.string "client_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

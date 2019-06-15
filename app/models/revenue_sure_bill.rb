@@ -1,0 +1,2 @@
+class RevenueSureBill < ApplicationRecord
+end

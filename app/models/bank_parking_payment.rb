@@ -1,0 +1,2 @@
+class BankParkingPayment < ApplicationRecord
+end
