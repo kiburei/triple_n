@@ -9,4 +9,13 @@ class LaifomsBill < ApplicationRecord
     end
   end
 
+  def self.paid_in_revenuesure
+    LaifomsBill.all.each do |bill|
+      if RevenueSureBill.exists?(["client_name LIKE ?", bill.client_name])
+        LaifomsBill.where(client_name: bill.client_name).update(paid_in_revenuesure: "TRUE")
+        puts "Bill #{bill.bill_number} found"
+      end
+    end
+  end
+
 end

@@ -1,0 +1,68 @@
+<h1>NCC NBK RevenueSure Reconciliations</h1>
+<div class="row">
+  <div class="col s4">
+    <h4>Bank Transactions</h4>
+    <h2><%= @bank_transactions.count %></h2>
+    <h4><%= number_to_currency(@bank_transactions.sum(:amount), :unit => "KES ") %></h4>
+  </div>
+  <div class="col s4">
+    <h4>Laifoms Bills</h4>
+    <h2><%= @laifoms_bills.count %></h2>
+    <h4><%= number_to_currency(@laifoms_bills.sum(:detail_amount), :unit => "KES ") %></h4>
+  </div>
+  <div class="col s4">
+    <h4>Revenusure Transactions</h4>
+    <h2><%= @revenusure_bills.count %></h2>
+    <h4><%= number_to_currency(@revenusure_bills.sum(:bill_amount), :unit => "KES ") %></h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s6">
+    <h2>Laifom Bill Paid In Revenusure(<%= @laifoms_bills.where(paid_in_revenuesure: "1").count %>)</h2>
+    <table class="striped">
+      <thead>
+        <th>Bill Number</th>
+        <th>Client Name</th>
+        <th>Bill Amount</th>
+        <th>Date Issued</th>
+      </thead>
+      <tbody>
+        <% @laifoms_bills.each do |bill| %>
+          <% if bill.paid_in_revenuesure == "1" %>
+            <tr>
+              <td><%= bill.bill_number %></td>
+              <td><%= bill.client_name %></td>
+              <td><%= number_to_currency(bill.detail_amount, :unit => "KES ") %></td>
+              <td><%= bill.date_issued %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col s6">
+    <h2>Laifom Bills Paid In Bank(<%= @laifoms_bills.where.not(bank_narrative: nil).count %>)</h2>
+    <table class="striped">
+      <thead>
+        <th>Bill Number</th>
+        <th>Client Name</th>
+        <th>Bill Amount</th>
+        <th>Date Issued</th>
+      </thead>
+      <tbody>
+        <% @laifoms_bills.each do |bill| %>
+          <% if bill.bank_narrative != nil %>
+            <tr>
+              <td><%= bill.bill_number %></td>
+              <td><%= bill.client_name %></td>
+              <td><%= number_to_currency(bill.amount, :unit => "KES ") %></td>
+              <td><%= bill.date_issued %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190615102849) do
+ActiveRecord::Schema.define(version: 20190615120306) do
 
   create_table "bank_parking_payments", force: :cascade do |t|
     t.string "number_plate"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20190615102849) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "bank_narrative"
+    t.string "paid_in_revenuesure"
   end
 
   create_table "revenue_sure_bills", force: :cascade do |t|
