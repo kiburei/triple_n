@@ -1,0 +1,29 @@
+<h1>Laifoms Bills</h1>
+<h5>Transactions: <%= number_to_currency(@laifoms_bills.sum(:detail_amount), :unit => "KES ") %></h5>
+
+<table class="striped">
+  <thead>
+    <th>Bill Number</th>
+    <th>Date Issued</th>
+    <th>Client Name</th>
+    <th>Brienf Description</th>
+    <th>Bill Status</th>
+    <th>Bill Amount</th>
+    <th>Transaction In Bank</th>
+    <th>Transaction In Laifoms</th>
+  </thead>
+  <tbody>
+    <% @laifoms_bills.each do |bill| %>
+      <tr>
+        <td><%= bill.bill_number %></td>
+        <td><%= bill.date_issued %></td>
+        <td><%= bill.client_name %></td>
+        <td><%= bill.brief_description %></td>
+        <td><%= bill.bill_status %></td>
+        <td><%= bill.detail_amount %></td>
+        <td><%= bill.bank_narrative %></td>
+        <td><%= bill.paid_in_revenuesure %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

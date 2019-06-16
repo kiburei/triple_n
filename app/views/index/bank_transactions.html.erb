@@ -1,0 +1,23 @@
+<h1>Bank Transactions</h1>
+<h5>Transactions: <%= number_to_currency(@bank_transactions.sum(:amount), :unit => "KES ") %></h5>
+
+<table class="striped">
+  <thead>
+    <th>Narration</th>
+    <th>Amount</th>
+    <th>Cleared Running Balance</th>
+    <th>Book Balance</th>
+    <th>Posting Date</th>
+  </thead>
+  <tbody>
+    <% @bank_transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.narration %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.cleared_running_balance %></td>
+        <td><%= transaction.book_balance %></td>
+        <td><%= transaction.posting_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
